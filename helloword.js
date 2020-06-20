@@ -28,7 +28,8 @@ const server = http.createServer((req, res) => {
         case '/img/floop.png':
             serverStaticFile(res, '/public/img/flooop.png', 'image/png')
             break
-
+        /*When you call the <img src="img/floop.png does it rebuil the server looking at the src
+        the path from the file ?"> */
         default:
             serverStaticFile(res, '/public/404.html', 'text/html', 404)
             break
