@@ -1,0 +1,20 @@
+{
+  "name": "book-node-and-express",
+  "version": "1.0.0",
+  "description": "This Project it's from Web Development Using Node and Express",
+  "main": "helloword.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devstart": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedrocardoz0/book-node-and-express.git"
+  },
+  "author": "'Pedro'",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedrocardoz0/book-node-and-express/issues"
+  },
+  "homepage": "https://github.com/pedrocardoz0/book-node-and-express#readme"
+}
