@@ -1,15 +1,8 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
+const fortune = require('../../ch04/lib/fortune.js')
 
 const app = express()
-
-const fortunes = [
-    "Conquer",
-    "Rivers",
-    "Do not",
-    "You will",
-    "Whenever"
-]
 
 app.engine('handlebars', expressHandlebars({
     defaultLayout: 'main',
@@ -24,8 +17,7 @@ app.use(express.static(__dirname + '/public'))
 app.get('/', (req, res) => res.render('home'))
 
 app.get('/about', (req, res) => {
-    const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)]
-    res.render('about', {fortune: randomFortune})
+    res.render('about', { fortune: fortune.getFortune() })
 })
 
 app.use((req, res) => {
