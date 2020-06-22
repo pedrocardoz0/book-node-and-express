@@ -6,15 +6,18 @@ const app = express()
 
 const PORT = process.env.PORT || 3000
 
-app.get('/', handlers.home)
-
-app.get('/about', handlers.about)
-
 app.engine('handlebars', expressHandlebars ({
     defaultLayout: 'main'
 }))
 
 app.set('view engine', 'handlebars')
+
+app.use(express.static(__dirname + '/public'))
+
+app.get('/', handlers.home)
+
+app.get('/about', handlers.about)
+
 //404 personalized message 
 app.use(handlers.notFound)
 
