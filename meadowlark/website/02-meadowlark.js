@@ -4,6 +4,8 @@ const fortune = require('../../ch04/lib/fortune.js')
 
 const app = express()
 
+app.disable('x-powered-by')
+
 app.engine('handlebars', expressHandlebars({
     defaultLayout: 'main',
 }))
@@ -25,11 +27,6 @@ app.get('/headers', (req, res) => {
     const headers = Object.entries(req.headers)
         .map(([key, value]) => `${key}:${value}`)
     res.send(headers.join('\n'))
-})
-
-app.use(function (req, res, next) {
-    res.removeHeader("X-Powered-By");
-    next();
 })
 
 app.use((req, res) => {
