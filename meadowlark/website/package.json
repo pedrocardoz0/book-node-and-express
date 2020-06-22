@@ -4,12 +4,15 @@
   "description": "My WebSite",
   "main": "meadowlark.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "'Pedro'",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
   }
 }
