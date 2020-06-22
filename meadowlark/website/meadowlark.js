@@ -6,6 +6,7 @@ const app = express()
 
 const PORT = process.env.PORT || 3000
 
+/*Remember all the time to insert the config  */
 app.engine('handlebars', expressHandlebars ({
     defaultLayout: 'main'
 }))
