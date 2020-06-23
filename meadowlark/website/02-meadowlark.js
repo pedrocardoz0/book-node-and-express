@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', (req, res) => res.render('home'))
+app.get('/', (req, res) => res.render('home', { test:[{ name: 'js'}, {name: 'py'}],}))
 
 app.get('/about', (req, res) => {
     res.render('about', { fortune: fortune.getFortune() })
