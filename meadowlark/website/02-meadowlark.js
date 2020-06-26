@@ -1,6 +1,8 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
 const fortune = require('../../ch04/lib/fortune.js')
+const expressSession = require('express-session')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 
@@ -14,12 +16,19 @@ app.set('view engine', 'handlebars')
 
 const PORT = process.env.PORT || 3000
 
+app.use(cookieParser(credentials.cookieSecret))
+
+
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => res.render('home', { test:[{ name: 'js'}, {name: 'py'}],}))
 
 app.get('/about', (req, res) => {
     res.render('about', { fortune: fortune.getFortune() })
+})
+
+app.get('/test', (req, res) => {
+    res.send('testing')
 })
 
 app.get('/headers', (req, res) => { 
