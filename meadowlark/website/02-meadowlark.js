@@ -16,8 +16,7 @@ app.set('view engine', 'handlebars')
 
 const PORT = process.env.PORT || 3000
 
-app.use(cookieParser(credentials.cookieSecret))
-
+//app.use(cookieParser(credentials.cookieSecret))
 
 app.use(express.static(__dirname + '/public'))
 
@@ -48,6 +47,21 @@ app.use((err, req, res, next) => {
     res.status(500)
     res.render('500')
 })
+
+app.use((req, res, next) => {
+    console.log(`Processing request for ${req.url}`)
+    next()
+})
+
+app.use((req, res) => {
+    console.log('Closing the process')
+    res.send('THX for playing')
+})
+
+app.use((req, res) => {
+    console.log('i\'ll never be executed')
+})
+
 
 app.listen(PORT, () => console.log(
     `Express started on http://localhost:${PORT}`
